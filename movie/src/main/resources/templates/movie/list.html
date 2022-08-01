@@ -1,0 +1,16 @@
+<tr th:each="data: ${movie}">
+	<td th:text="${data.title}"></td>
+	<td th:text="${data.rating}"></td>
+	<td th:text="${data.release_year}"></td>
+	<td th:text="${data.actor_name}"></td>
+	<td th:text="${data.director_name}"></td>
+	<td th:text="${data.genre}"></td>
+	<td><a th:href="@{/movie/readMovieById(id=${data.movie_id})}" id="edit" type="button" class="btn btn-info">Edit</a></td>
+	<td>
+	<form method="post" th:action="@{/movie/delete}">
+		<input name="id" th:value="${data.movie_id}" type="text"></input>
+		<button id="edit" type="button" class="btn btn-danger">Delete</button>
+	</form>
+	</td>
+</tr>
+
